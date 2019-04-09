@@ -10,4 +10,13 @@ class Welcome extends Component{
   }
 }
 
-ReactDom.render(<Welcome />, document.getElementById('root'));
+class App extends Component{
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return <div> <Welcome /> <Welcome /> <Welcome /> </div>;
+  }
+}
+
+ReactDom.render(<App />, document.getElementById('root'));
