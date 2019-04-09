@@ -1,3 +1,6 @@
+/**
+ * React.Component 用以继承的React组件类
+ */
 class Component{
   constructor(props = {}) {
     this.state = {};
@@ -10,4 +13,3 @@ class Component{
 }
 
 export default Component;
-

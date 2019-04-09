@@ -1,5 +1,10 @@
 import { createComponent, setComponentProps } from './createComponent';
 
+/**
+ * 
+ * @param {虚拟节点 tag attrs children} vnode 
+ * @param {挂载的节点} container 
+ */
 function render(vnode, container) {
   container.appendChild(_render(vnode));
 }
@@ -31,7 +36,11 @@ export function _render(vnode) {
   }
   return dom;
 }
-
+/**
+ * 
+ * @param {attr属性} attrs 
+ * @param {需要添加attr属性的节点} ele 
+ */
 function setAttrs(attrs, ele) {
   if (!attrs) {
     return;
