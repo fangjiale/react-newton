@@ -6,7 +6,7 @@ class Welcome extends Component{
     super(props);
   }
   render() {
-    return <div> welcome </div>;
+    return <div>{ this.props && this.props.welcomeText || 'welcome' }</div>;
   }
 }
 
@@ -15,7 +15,7 @@ class App extends Component{
     super(props);
   }
   render() {
-    return <div> <Welcome /> <Welcome /> <Welcome /> </div>;
+    return <div><Welcome class="blue" welcomeText="hello" /><Welcome /></div>;
   }
 }
 

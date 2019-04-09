@@ -21,7 +21,7 @@ export function _render(vnode) {
   if (typeof tag === 'function') {
     //渲染组件
     const component = createComponent(tag, vnode.attrs);
-    setComponentProps(component);
+    setComponentProps(component, vnode.attrs);
     return component.base;
   }
 
@@ -40,6 +40,7 @@ export function _render(vnode) {
  * 
  * @param {attr属性} attrs 
  * @param {需要添加attr属性的节点} ele 
+ * 目前只是最简单的全部赋值 需要区分是props传值还是attr属性
  */
 function setAttrs(attrs, ele) {
   if (!attrs) {
