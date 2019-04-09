@@ -1,3 +1,5 @@
+import { createComponent, setComponentProps } from './createComponent';
+
 function render(vnode, container) {
   container.appendChild(_render(vnode));
 }
@@ -10,6 +12,14 @@ export function _render(vnode) {
   }
 
   let dom;
+
+  if (typeof tag === 'function') {
+    //渲染组件
+    const component = createComponent(tag, vnode.attrs);
+    setComponentProps(component);
+    return component.base;
+  }
+
   dom = document.createElement(tag);
   setAttrs(vnode.attrs, dom);
   if (vnode.children && vnode.children.length) {
