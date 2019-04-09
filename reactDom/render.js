@@ -11,13 +11,24 @@ export function _render(vnode) {
 
   let dom;
   dom = document.createElement(tag);
-
+  setAttrs(vnode.attrs, dom);
   if (vnode.children && vnode.children.length) {
     vnode.children.forEach(child => {
-      dom.appendChild(_render(child));
+      const childEle = _render(child);
+      dom.appendChild(childEle);
+      setAttrs(child.attrs, childEle);
     });
   }
   return dom;
+}
+
+function setAttrs(attrs, ele) {
+  if (!attrs) {
+    return;
+  }
+  Object.keys(attrs).forEach((key) => {
+    ele.setAttribute(key, attrs[key]);
+  });
 }
 
 export default render;
