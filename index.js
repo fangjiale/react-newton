@@ -1,6 +1,13 @@
-import React from './react';
+import React, { Component } from './react';
 import ReactDom from './reactDom';
 
-const ele = <div class="blue">hi</div>
+class Welcome extends Component{
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return <div> welcome </div>;
+  }
+}
 
-ReactDom.render(ele, document.getElementById('root'));
+ReactDom.render(<Welcome />, document.getElementById('root'));
